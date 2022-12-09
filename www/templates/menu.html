@@ -1,0 +1,82 @@
+<ion-side-menus enable-menu-with-back-views="true">
+
+    <ion-side-menu-content >
+        <ion-nav-bar class="bar-stable">
+            <!--<ion-nav-back-button>-->
+                <!--<i class="icon ion-chevron-left back-chevron"></i> Back-->
+            <!--</ion-nav-back-button>-->
+
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon menu-toggle-jap" menu-toggle="left">
+                </button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+
+        <!--<ion-nav-bar class="bar-stable nav-title-slide-ios7">-->
+            <!--<ion-nav-buttons side="left">-->
+                <!--<button menu-toggle="left" class="button button-icon icon ion-navicon menu-toggle-jap"></button>-->
+            <!--</ion-nav-buttons>-->
+            <!--<ion-nav-back-button class="button-clear"><i class="icon ion-chevron-left"></i> Back</ion-nav-back-button>-->
+
+        <!--</ion-nav-bar>-->
+
+        <ion-nav-view name="menuContent">
+        </ion-nav-view>
+    </ion-side-menu-content>
+
+    <ion-side-menu side="left">
+        <header class="bar bar-header bar-stable">
+            <h1 class="title">Menu</h1>
+        </header>
+        <ion-content class="has-header">
+            <ion-list>
+                <a nav-clear menu-close class="item item-icon-left" href="#/app/home">
+                <i class="icon ion-android-home"></i>
+                Home
+                </a>
+                <div ng-if="token_Root == undefined ">
+                <a nav-clear menu-close class="item item-icon-left" href="#/app/login">
+                <i class="icon ion-android-exit"></i>
+                Login
+                </a>
+                <a nav-clear menu-close class="item item-icon-left " href="#/app/register">
+                <i class="icon ion-android-person-add"></i>
+                Register
+                </a>
+                <a nav-clear menu-close class="item item-icon-left" href="#/app/forget_password">
+                <i class="icon ion-ios-locked-outline"></i>
+                Forget Password
+                </a>
+                </div>
+                <div ng-if="token_Root != undefined ">
+                <a nav-clear menu-close class="item item-icon-left" href="#/app/logout">
+                <i class="icon ion-power"></i>
+                Logout
+                </a>
+                <a nav-clear menu-close class="item item-icon-left" href="#/app/profile">
+                <i class="icon ion-android-contact"></i>
+                Profile
+                </a>
+                <a nav-clear menu-close class="item item-icon-left" href="#/app/history">
+                <i class="icon ion-android-time"></i>
+                History
+                </a>
+                </div>
+                <a nav-clear menu-close class="item item-icon-left" href="#/app/ticket">
+                <i class="icon ion-ios-cart"></i>
+                Ticket
+                </a>
+                <a nav-clear menu-close class="item item-icon-left item-icon-right" href="#/app/contactus">
+                <i class="icon ion-android-call"></i>
+                Contact
+                <i class="icon ion-ios7-telephone-outline"></i>
+                </a>
+                 <!--<a nav-clear menu-close class="item item-icon-left item-icon-right" href="#/app/test">-->
+                <!--<i class="icon ion-android-call"></i>-->
+                <!--test-->
+                <!--<i class="icon ion-ios7-telephone-outline"></i>-->
+                <!--</a>-->
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

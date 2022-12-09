@@ -1,0 +1,40 @@
+<ion-view >
+     <ion-nav-title>
+        <div class="center_jap">
+            <img class="title-image" src="img/JAP-LOGO-22.png" />
+        </div>
+    </ion-nav-title>
+    <!--<ion-nav-buttons side="left">-->
+        <!--<button menu-toggle="left" class="button button-icon icon ion-navicon menu-toggle-jap"></button>-->
+    <!--</ion-nav-buttons>-->
+    <ion-content class="padding">
+        <div class="row responsive-sm responsive-md responsive-lg">
+            <div style="text-align: center;">
+            <h1>{{serial}}</h1>
+                </div>
+            <div class="col ">
+                <div style="position: relative;margin: 70px auto;max-width: 260px;height: 260px;background: #ccc;text-align: center;">
+
+                    <p style="padding-top: 10px">Your order</p>
+                    <p>has been paid successfully</p>
+
+                    <div style="">
+                        <img class="title-image" src="img/check_mark.png" style="width: 50%;"/>
+                    </div>
+
+                    <div style="">
+                        <p> waiting for confirm message</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col"  style="text-align: center;">
+                <button class="button button-block button-assertive "  ng-click="checktoken()">
+                    Clear Data
+                </button>
+                <!--<a ng-click="checktoken()"  >Checking my order</a>-->
+            </div>
+            <!--</form>-->
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,31 @@
+<ion-view >
+     <ion-nav-title>
+        <div class="center_jap">
+            <img class="title-image" src="img/JAP-LOGO-22.png" />
+        </div>
+		 
+    </ion-nav-title>
+    <!--<ion-nav-buttons side="left">-->
+        <!--<button menu-toggle="left" class="button button-icon icon ion-navicon menu-toggle-jap"></button>-->
+        <!---->
+    <!--</ion-nav-buttons>-->
+	<ion-nav-buttons side="right">
+	<button  menu-toggle="right"  class="button button-icon" ng-click="ticketview()">{{counttotal}} <i class="icon ion-android-cart" ></i></button>
+    </ion-nav-buttons>
+    <ion-content class="scroll-content ionic-scroll  has-header">
+        <div class="row responsive-sm responsive-md responsive-lg">
+            <!--<form name="form_register" novalidate  ng-submit="Register(registerData)">-->
+                <div class="col col-center center_jap">
+                    <h1>Ticket</h1>
+                </div>
+
+                <div class="col" >
+                    <button ng-repeat="items in ListCompany"  class="button icon-right ion-chevron-right button-block button-assertive"  ui-sref="app.ticketAppCompany({Id:items.company_id,Name:items.company_name})">
+                        {{items.company_name}}
+                    </button>
+                </div>
+
+            <!--</form>-->
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,41 @@
+<ion-view >
+    <ion-nav-title>
+        <div class="center_jap">
+            <img class="title-image" src="img/JAP-LOGO-22.png" />
+        </div>
+
+    </ion-nav-title>
+    <!--<ion-nav-buttons side="left">-->
+    <!--<button menu-toggle="left" class="button button-icon icon ion-navicon menu-toggle-jap"></button>-->
+    <!--</ion-nav-buttons>-->
+    <ion-nav-buttons side="right">
+        <button  menu-toggle="right" class="button button-icon"  ng-click="ticketview()">{{counttotal}} <i class="icon ion-android-cart" ></i></button>
+    </ion-nav-buttons>
+
+    <ion-content class="scroll-content ionic-scroll  has-header">
+        <div class="row responsive-sm responsive-md responsive-lg">
+
+            <div class="col col-center center_jap">
+                <h1>{{Name}}</h1>
+            </div>
+        </div>
+        <form  id="itemlist" name="form_itemTicket" ng-submit="itemTicket()">
+            <ul class="list">
+
+                <li class="item item-checkbox" ng-repeat="items in ListCompanyArr" >
+
+                    <label class="checkbox">
+                        <input type="checkbox" ng-init='checkStatus = items.status' ng-model="checkStatus" ng-click="itemTicketData($index, items.id, items.name, items.price, checkStatus,items.type)" >
+                    </label>
+                    {{items.name}}</br>
+                    {{items.price}} Baht
+                </li>
+            </ul>
+            <div class="col" >
+                <button class="button button-block button-balanced "  type="submit">
+                    Next
+                </button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

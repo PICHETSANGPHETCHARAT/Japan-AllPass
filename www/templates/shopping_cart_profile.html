@@ -1,0 +1,237 @@
+<ion-view >
+    <ion-nav-title>
+        <div class="center_jap">
+            <img class="title-image" src="img/JAP-LOGO-22.png" />
+        </div>
+    </ion-nav-title>
+    <!--<ion-nav-buttons side="left">-->
+    <!--<button menu-toggle="left" class="button button-icon icon ion-navicon menu-toggle-jap"></button>-->
+    <!--</ion-nav-buttons>-->
+    <ion-content>
+        <div class="row responsive-sm responsive-md responsive-lg scc">
+            <form name="form_cart"  ng-submit="ShoppingProfile()">
+
+                <div class="col">
+                    <span class="input-label">Start Date  * : </span>
+
+                    <button type="button" class="button button-block button-balanced " ng-click="createEventStart()">Start</button>
+                    <label class="item item-input">
+
+                        <input type="text" name="start"  ng-model="cartData.start" readonly >
+                    </label>
+                    <!--<button class="button" >Create Event</button>-->
+                </div>
+                <div class="col">
+                    <span class="input-label">End Date  *: </span>
+                    <button type="button" class="button button-block button-balanced "  ng-click="createEventEnd()">End</button>
+                    <label class="item item-input">
+                        <input type="text"  name="end" ng-model="cartData.end" readonly >
+                    </label>
+
+                </div>
+                <div class="col" style="padding: 10px;text-align: center;background:#ddd;" ng-show="showAdmin">
+
+                    <a class="button button-light icon-right ion-chevron-right button-full" ui-sref="app.customers" >
+                        Customer Search
+                    </a>
+
+                </div>
+                <div class="col" style="padding: 10px;text-align: center;background:#ddd;">
+                    <div class="col">
+                        <label class="item item-input item-select">
+                            <div class="input-label">
+                                SEX  *:
+                            </div>
+                            <select name="selectSEX" ng-model="usercartData.selectSEX"  >
+                                <option value="" >Please Select</option>
+                                <option value="MR" >MR.</option>
+                                <option value="MS">MS.</option>
+                                <option value="CH">CH.</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="col">
+                        <span class="input-label text-left" style="min-width: 250px!important; max-width: 300px !important;">First Name  *:</span>
+                        <label class="item item-input">
+                            <input type="text" placeholder="First Name" name="namef" ng-model="usercartData.namef" ng-change="namefChanged($index)" >
+                        </label>
+                    </div>
+                    <div class="col">
+                        <span class="input-label text-left" style="min-width: 250px!important; max-width: 300px !important;">Last Name  *:</span>
+                        <label class="item item-input">
+                            <input type="text" placeholder="Last Name" name="namel" ng-model="usercartData.namel" ng-change="namelChanged($index)" >
+                        </label>
+                    </div>
+                    <div class="col">
+                        <span class="input-label text-left">Tel  *:</span>
+                        <label class="item item-input">
+                            <input type="text" placeholder="Phone number" name="phone" ng-model="usercartData.phone" ng-change="phoneChanged()" >
+                        </label>
+                    </div>
+                    <div class="col">
+                        <span class="input-label text-left">Email  *:</span>
+                        <label class="item item-input">
+                            <input type="text" placeholder="email@email.com" name="mail" ng-model="usercartData.mail" >
+                        </label>
+                    </div>
+                    <div class="col">
+                        <span class="input-label text-left">ID line :</span>
+                        <label class="item item-input">
+                            <input type="text" placeholder="id line" name="line" ng-model="usercartData.line" >
+                        </label>
+                    </div>
+                    <div class="col">
+                        <span class="input-label text-left">Address  *:</span>
+                        <label class="item item-input">
+                            <textarea placeholder="address" name="address" ng-model="usercartData.address"  ></textarea>
+
+                        </label>
+                    </div>
+
+                    <div class="col"  >
+                        <span class="input-label text-left">Province  *:</span>
+                        <label class="item item-input">
+                            <input type="text" readonly placeholder="Province" name="Province" ng-model="usercartData.province"  >
+                        </label>
+                        <a  ng-show="showProvince" class="button icon-right ion-chevron-right button-block  button-balanced" ui-sref="app.province">
+                            Select Province
+                        </a>
+
+                    </div>
+                    <div class="col"  >
+                        <span class="input-label text-left">Postcode  *:</span>
+                        <label class="item item-input">
+                            <input type="text" readonly placeholder="postcode" name="postcode" ng-model="usercartData.postcode"  >
+                        </label>
+                        <a ng-show="showProvince" class="button icon-right ion-chevron-right button-block  button-balanced" ui-sref="app.postcode">
+                            Select PostCode
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div  ng-repeat="val in cartDatas track by $index" >
+                    <div ng-if="val.name != 0" class="col" style="padding: 10px;text-align: center;background:#ddd;">
+                        <h2 >{{val['name']}}</h2>
+                    </div>
+                    <div class="item item-divider">
+                        <ul class="list">
+                            <li class="item item-checkbox" >
+                                <span ng-show="(val.type == 0)" >
+                                 Passenger Number {{$index+1}}
+                                </span>
+                                <span ng-show="(val.type == 1)">
+                                 Passenger Number {{$index+1}} (Fill)
+                                </span>
+                                <label class="checkbox" >
+                                    <input ng-show="(val.type == 1)" type="checkbox" ng-init='checkStatus = false' ng-model="cartData.checkStatus[$index]" ng-click="copyText($index)" >
+                                </label>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                    <div ng-if="(val.type == 1)">
+                        <div class="col">
+                            <label class="item item-input item-select">
+                                <div class="input-label">
+                                    SEX  *:
+                                </div>
+                                <select name="selectSEX" ng-model="cartData.selectSEX[$index]"  >
+                                    <option value="" >Please Select</option>
+                                    <option value="MR" >MR.</option>
+                                    <option value="MS">MS.</option>
+                                    <option value="CH">CH.</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="col">
+                            <span class="input-label" style="min-width: 250px!important; max-width: 300px !important;">First Name  *:</span>
+                            <label class="item item-input">
+                                <input type="text" placeholder="First Name" name="namef" ng-model="cartData.namef[$index]" ng-change="namefChanged($index)" >
+                            </label>
+                        </div>
+                        <div class="col">
+                            <span class="input-label"  style="min-width: 250px!important; max-width: 300px !important;">Last Name  *:</span>
+                            <label class="item item-input">
+                                <input type="text" placeholder="Last Name" name="namel" ng-model="cartData.namel[$index]" ng-change="namelChanged($index)" >
+                            </label>
+                        </div>
+
+                        <div class="col">
+                            <span class="input-label"  style="min-width: 250px!important; max-width: 300px !important;">PassPort :</span>
+                            <div ng-if="!cartData.photo[$index]" class="button button-block button-positive icon-left ion-camera" ng-click="showaction($index)" >PassPort</div>
+                            <div ng-if="cartData.photo[$index]" class="button button-block button-assertive" ng-click="RemoveFiless($index)">ลบรูป</div>
+                            <img ng-if="cartData.photo[$index]" data-ng-src="{{cartData.photofull[$index]}}"  ng-model="cartData.photopreview[$index]"   class="col text-center" height="">
+                            <input type="hidden" name="photol" ng-model="cartData.photo[$index]"  >
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <!--<br><br><br><br>-->
+                <!--<div ng-repeat="item in getNumber(number) track by $index">-->
+
+
+                <!--<div class="item item-divider">-->
+                <!--<ul class="list">-->
+                <!--<li class="item item-checkbox" >-->
+                <!--<span ng-if="$index == 0">-->
+                <!--Passenger Number 1-->
+                <!--</span>-->
+                <!--<span ng-if="$index != 0">-->
+                <!--Passenger  Number {{num = $index+1}}-->
+                <!--</span>-->
+                <!--<label class="checkbox" >-->
+                <!--<input ng-show="(arrTicketPush[$index]['type'] == 1)" type="checkbox" ng-init='checkStatus = false' ng-model="checkStatus" ng-click="copyText($index)" >-->
+                <!--</label>-->
+                <!--</li>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--<div class="col" style="padding: 10px;text-align: center;background:#ddd;">-->
+                <!--<h2>{{arrTicketPush[$index]['name']}}</h2>-->
+                <!--</div>-->
+                <!--<div ng-if="arrTicketPush[$index]['type'] == 1">-->
+                <!--<div class="col">-->
+                <!--<label class="item item-input item-select">-->
+                <!--<div class="input-label">-->
+                <!--SEX :-->
+                <!--</div>-->
+                <!--<select name="selectSEX" ng-model="cartData.selectSEX[$index]"  >-->
+                <!--<option value="" >Please Select</option>-->
+                <!--<option value="MR" >MR.</option>-->
+                <!--<option value="MS">MS.</option>-->
+                <!--<option value="CH">CH.</option>-->
+                <!--</select>-->
+                <!--</label>-->
+                <!--</div>-->
+                <!--<div class="col">-->
+                <!--<span class="input-label">First Name :</span>-->
+                <!--<label class="item item-input">-->
+                <!--<input type="text" placeholder="First Name" name="namef" ng-model="cartData.namef[$index]" ng-change="namefChanged($index)" >-->
+                <!--</label>-->
+                <!--</div>-->
+                <!--<div class="col">-->
+                <!--<span class="input-label">Last Name :</span>-->
+                <!--<label class="item item-input">-->
+                <!--<input type="text" placeholder="Last Name" name="namel" ng-model="cartData.namel[$index]" ng-change="namelChanged($index)" >-->
+                <!--</label>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+
+                <div class="col">
+                    <button class="button button-block button-balanced "  type="submit">
+                        Next
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </ion-content>
+</ion-view>

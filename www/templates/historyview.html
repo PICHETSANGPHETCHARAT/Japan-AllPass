@@ -1,0 +1,27 @@
+<ion-view>
+    <ion-nav-title>
+        <div class="center_jap">
+            <img class="title-image" src="img/JAP-LOGO-22.png" />
+        </div>
+    </ion-nav-title>
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon menu-toggle-jap"></button>
+    </ion-nav-buttons>
+    <ion-content class="scroll-content ionic-scroll  has-header">
+        <div class="row responsive-sm responsive-md responsive-lg">
+            <div class="col col-center center_jap">
+                <h1>Preview Passport Photo</h1>
+            </div>
+            <div class="col">
+                <div class="item item-body">
+                    <img class="full-image"   ng-src="{{dataHis.img}}" />
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar  class=""  style="padding:5px 5px 5px 5px !important;">
+        <button class="button button-block button-assertive " ng-click="backview()"   type="submit" style="margin-top: 0px;">
+            Back
+        </button>
+    </ion-footer-bar>
+</ion-view>

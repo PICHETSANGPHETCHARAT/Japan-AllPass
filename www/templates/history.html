@@ -1,0 +1,44 @@
+<ion-view >
+     <ion-nav-title>
+        <div class="center_jap">
+            <img class="title-image" src="img/JAP-LOGO-22.png" />
+        </div>
+    </ion-nav-title>
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon menu-toggle-jap"></button>
+    </ion-nav-buttons>
+    <ion-content class="scroll-content ionic-scroll  has-header">
+        <div class="row responsive-sm responsive-md responsive-lg">
+            <div class="col col-center center_jap">
+                <h1>History</h1>
+            </div>
+            
+                <div class="col">
+                    <table class="normal">
+                        <thead style="background: #ccc;">
+                            <tr>
+                                <th style="width: 30%;">Order</th>
+                                <th style="width: 30%;">Name</th>
+                                <th style="width: 20%;" >Subtotal</th>
+                                <th style="width: 10%;"></th>
+                                 <th style="width: 10%;"></th>
+                            </tr>
+                        </thead>
+                        <tbody >
+
+                            <tr ng-repeat="value in arrTicketHistory">
+
+                                <td >{{value.buy_ticket_serial}}</td>
+                                <td >{{value.buy_ticket_book_gender}} {{value.buy_ticket_book_namef}} {{value.buy_ticket_book_namel}}</td>
+                                <td >{{value.buy_ticket_price}} Baht</td>
+                                <td style="font-size: 25px;"><i class="icon ion-camera" ng-click="showaction(value.buy_ticket_book_id,value.buy_ticket_book_phone)" ></i></td>
+                                <td style="font-size: 25px;" ng-if="value.buy_ticket_book_passport!=''" ><i class="icon ion-eye" ng-click="view(value.buy_ticket_book_id)" ></i></td>
+                                <td style="font-size: 25px;" ng-if="value.buy_ticket_book_passport==''" ><i class="icon ion-eye-disabled"  ></i></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+        </div>
+    </ion-content>

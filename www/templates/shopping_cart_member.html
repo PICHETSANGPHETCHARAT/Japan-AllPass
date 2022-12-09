@@ -1,0 +1,161 @@
+<ion-view >
+     <ion-nav-title>
+        <div class="center_jap">
+            <img class="title-image" src="img/JAP-LOGO-22.png" />
+        </div>
+    </ion-nav-title>
+    <!--<ion-nav-buttons side="left">-->
+        <!--<button menu-toggle="left" class="button button-icon icon ion-navicon menu-toggle-jap"></button>-->
+    <!--</ion-nav-buttons>-->
+    <ion-content class="scroll-content ionic-scroll  has-header">
+        <div class="row responsive-sm responsive-md responsive-lg">
+            <div class="col" >
+
+                <table class="normal">
+                    <thead style="background: #ccc;color:#FFFFFF">
+                        <tr>
+                            <th style="width:10%;background: #ED1C24;font-size: 25px;"><i class="icon ion-android-cart" ></i></th>
+                            <th style="width:90%;">{{counttotal}}  Shopping Cart </th>
+                        </tr>
+                    </thead>
+                </table>
+                 
+                <!--<div class="item item-icon-left" style="background: #ccc;color:#FFFFFF" >-->
+                <!--<div style="background: #ED1C24;"></div>-->
+                <!--Shopping Cart-->
+                <!--</div>-->
+            </div>
+            <form name="search_form" ng-submit="checkNum(value)">
+                <div class="col">
+                    <table class="normal">
+                        <thead style="background: #ccc;">
+                            <tr>
+                                <th style="width:40%;">Ticket</th>
+                                <th style="width:20%;">Qty</th>
+                                <th style="width:30%;" >Subtotal</th>
+                                <th style="width:10%;"></th>
+                            </tr>
+                        </thead>
+                        <tbody >
+
+                            <tr ng-repeat="value in arrTicketPush">
+                                <td >{{value.name}}</td>
+                                <td ><input type="number"  maxlength="5" class="num-{{value.id}}" name="num" ng-change="logValue(value.num, value.id, value.name, value.price,value.type)" ng-model="value.num" style="border-width: 1px ;border-style: solid;width:95%;border-color: #ccc; padding: 5px;"></td>
+                                <td >{{value.priceSum}} Baht</td>
+                                <td style="font-size: 25px;"><i class="icon ion-ios-trash-outline" ng-click="removeTicket(value.id, value.name, value.price)" ></i></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <!--<div class="row">-->
+                <!--<div class="col col-50">-->
+                <!--</div>-->
+                <!--<div class="col col-50 col-offset-10" >-->
+                <!--<button style="width:100%;" class="button button-assertive" ng-click="showNum()" type="button">-->
+                <!--Update Cart-->
+                <!--</button>-->
+                <!--</div>-->
+                <!--</div>-->
+            </form>
+            <!--<div class="col">-->
+                <!--<table class="normal">-->
+                    <!--<thead style="background: #ccc;">-->
+                        <!--<tr>-->
+                            <!--<th >Discount Codes</th>-->
+                        <!--</tr>-->
+                    <!--</thead>-->
+                    <!--<tbody>-->
+                    <!--<td >-->
+                        <!--Enter your coupon code if you have one.<br>-->
+                        <!--<div class="row">-->
+                            <!--<div class="col col-50">-->
+                                <!--<div class="list list-inset" style="margin: 0px 0px;">-->
+                                    <!--<label class="item item-input">-->
+                                        <!--<input type="text" placeholder="JAPDISCOUNT" ng-model="discountVal">-->
+                                    <!--</label>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col col-50 col-offset-10" >-->
+                                <!--<button style="width:100%;" class="button button-assertive" ng-click="japDis(discountVal)"  type="button">-->
+                                    <!--APPLY COUPON-->
+                                <!--</button>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</td>-->
+                    <!--</tbody>-->
+                <!--</table>-->
+            <!--</div>-->
+
+            <div class="col">
+                <table class="normal">
+                    <thead style="background: #ccc;">
+                        <tr>
+                            <th >Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <td >
+                        <div class="row">
+                            <div class="col col-50">
+                                <div class="list list-inset" style="margin: 0px 0px;">
+                                    Subtotal
+                                </div>
+                            </div>
+                            <div class="col col-50 col-offset-10"  >
+                                <div style="float: right;"> {{numSum | number:'2'}}  Baht</div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col col-50">
+                                <div class="list list-inset" style="margin: 0px 0px;">
+                                    Discount Price
+                                </div>
+                            </div>
+                            <div class="col col-50 col-offset-10" >
+                                <div style="float: right;"> - {{discount_total | number:'2'}}  Baht</div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col col-50">
+                                <div class="list list-inset" style="margin: 0px 0px;">
+                                    Total Discount
+                                </div>
+                            </div>
+                            <div class="col col-50 col-offset-10" >
+                                <div style="float: right;"> {{totaldiscount | number:'2'}}  Baht</div>
+                            </div>
+
+                        </div>
+                    </td>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="row">
+                <div class="col col-50">
+                    <!--<a style="width:100%;" class="button button-assertive" href="#/app/ticketApp"   type="button">-->
+                        <!--Coutinue Shopping-->
+                    <!--</a>-->
+                    <a style="width:100%;" class="button button-assertive" ui-sref="app.ticket"  type="button">
+                        Coutinue Shopping
+                    </a>
+                </div>
+                <div class="col col-50" >
+                    <button style="width:100%;" class="button button-assertive" ng-click="AppShopping_Profile_Check()"  type="button">
+                        Payment
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>

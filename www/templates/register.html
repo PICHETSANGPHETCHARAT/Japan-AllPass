@@ -1,0 +1,56 @@
+<ion-view >
+     <ion-nav-title>
+        <div class="center_jap">
+            <img class="title-image" src="img/JAP-LOGO-22.png" />
+        </div>
+    </ion-nav-title>
+    <!--<ion-nav-buttons side="left">-->
+        <!--<button menu-toggle="left" class="button button-icon icon ion-navicon menu-toggle-jap"></button>-->
+    <!--</ion-nav-buttons>-->
+    <ion-content >
+        <div class="row responsive-sm responsive-md responsive-lg">
+            <form name="form_register"  ng-submit="Register(registerData)">
+                <div class="col"></div>
+                <div class="col">
+                <span class="input-label">First Name :</span>
+                <label class="item item-input">
+                    <input type="text" placeholder="First Name" ng-change="namefChanged()" name="namef" ng-model="registerData.namef" >
+                </label>
+                </div>
+                <div class="col">
+                    <span class="input-label">Last Name :</span>
+                    <label class="item item-input">
+                        <input type="text" placeholder="Last Name" ng-change="namelChanged()" name="namel" ng-model="registerData.namel" >
+                    </label>
+                </div>
+                <div class="col">
+                    <!--<span class="label label-danger" ng-show="form_login.Username.$error.required && !form_login.Username.$pristine" >Name News is required</span>-->
+                    <span class="input-label">Tel :</span>
+                    <label class="item item-input">
+                        <input type="text" placeholder="Phone number" ng-change="phoneChanged()"  name="phone" ng-model="registerData.phone" >
+                    </label>
+                </div>
+                <div class="col">
+                    <span class="input-label">Email :</span>
+                    <label class="item item-input">
+                        <input type="email" placeholder="email@email.com" ng-change="mailChanged()" name="mail" ng-model="registerData.mail" >
+                    </label>
+                </div>
+                <div class="col">
+                    <span class="input-label">Password</span>
+                    <label class="item item-input">
+                        <input type="password" placeholder="******" ng-change="passwordChanged()"  name="password" ng-model="registerData.password" >
+                    </label>
+                </div>
+
+
+                <div class="col">
+                    <button class="button button-block button-assertive"  type="submit">
+                       Siqn Up
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </ion-content>
+</ion-view>

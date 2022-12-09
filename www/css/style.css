@@ -1,0 +1,87 @@
+/* Empty. Add your own CSS if you like */
+.title-image{
+    margin-top: 10px;
+//   margin-right: 10px;
+//    margin-bottom: 5px;
+//    margin-left: 10px;
+    width:120px;
+
+}
+.center_jap{
+    text-align:center;
+}
+.menu-toggle-jap{
+    color: #ED1C24!important;
+}
+.slide-jap{
+    height:50%;
+}
+.slide-jap img{
+    width:100%;
+}
+.jap_width80 button{
+    width:80%;
+}
+.back-chevron{
+    color: #ED1C24 !important;
+}
+.checkbox input:checked:before, .ionic .checkbox input:checked + .checkbox-icon:before {
+    background: #e42112;
+    border-color: #e42112;
+}
+.customer   .checkbox input:checked:before, .ionic .checkbox input:checked + .checkbox-icon:before {
+    background: #5ee479;;
+    border-color: #5ee479;;
+}
+.input-readonly{background-color: #F8F8F8;}
+
+.header .cell {
+    background-color:lightgrey;
+}
+
+.cell {
+    border: solid 1px grey;
+    border-bottom-style: none;
+    border-right-style: none;
+}
+
+.cell:last-child {
+    border-right: solid 1px grey;
+}
+
+.row:last-child .cell {
+    border-bottom: solid 1px grey;
+}
+.celltable {
+    text-align:center;
+    display: block;
+    float: left;
+}
+.celltable_1 {
+    display: block;
+    float: left;
+    border: solid 1px grey;
+    border-bottom-style: none;
+    border-right-style: none;
+}
+table.normal{
+    table-layout:fixed;
+    width:100%;
+    border:solid 1px #ccc;
+    padding:0;
+    border-collapse:collapse;
+    border-spacing:0;
+}
+table.normal th{
+    border:solid 1px #ccc;
+    word-wrap:break-word;
+}
+table.normal td{
+    border:solid 1px #ccc;
+    vertical-align:top;
+    word-wrap:break-word;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+}

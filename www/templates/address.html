@@ -1,0 +1,36 @@
+<ion-view name="app.address">
+    <ion-nav-title>
+        <div class="center_jap">
+            <img class="title-image" src="img/JAP-LOGO-22.png" />
+        </div>
+    </ion-nav-title>
+
+    <ion-content  class="has-header">
+        <div class="col" style="text-align: center;background:#ddd;">
+            <div class="list ">
+                <div class="col">
+                    <label class="item item-input">
+                        <i class="icon ion-search placeholder-icon"></i>
+                        <input type="search" placeholder="การค้นหาต้องการอย่างน้อย 3 ตัวอักษร" ng-change="searchChange()" ng-model="address.search">
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <ion-list>
+            <div class="col" ng-show="noneValue">
+                “ไม่พบข้อมูลที่ค้นหา”
+            </div>
+            <div class="col"  ng-repeat="items in ListAddressArr" >
+                <ion-radio ng-model="choice" ng-click="radioClick('{{items.buy_ticket_delivery_address}}','{{items.buy_ticket_delivery_provincy}}','{{items.buy_ticket_delivery_postcode}}')">{{items.buy_ticket_delivery_address}},{{items.buy_ticket_delivery_provincy}},{{items.buy_ticket_delivery_postcode}}</ion-radio>
+            </div>
+        </ion-list>
+
+
+    </ion-content>
+    <ion-footer-bar  class=""  style="padding:5px 5px 5px 5px !important;">
+        <button class="button button-block button-assertive " ng-click="selectcheck()"   type="submit" style="margin-top: 0px;">
+            Back
+        </button>
+    </ion-footer-bar>
+</ion-view>

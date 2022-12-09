@@ -1,0 +1,79 @@
+<ion-view >
+     <ion-nav-title>
+        <div class="center_jap">
+            <img class="title-image" src="img/JAP-LOGO-22.png" />
+        </div>
+    </ion-nav-title>
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon menu-toggle-jap"></button>
+    </ion-nav-buttons>
+    <ion-content >
+        <div class="row responsive-sm responsive-md responsive-lg">
+            <form name="form_profile"  ng-submit="proFile(tokenData)">
+                <div class="col col-center center_jap">
+                    <h1>Edit Profile</h1>
+                </div>
+                <div class="col">
+                    <span class="input-label">First Name :</span>
+                    <label class="item item-input">
+                        <input type="text" placeholder="First Name" name="namef"  ng-model="tokenData.account_user_fname" >
+                    </label>
+                </div>
+                <div class="col">
+                    <span class="input-label">Last Name :</span>
+                    <label class="item item-input">
+                        <input type="text" placeholder="Last Name" name="namel" ng-model="tokenData.account_user_lname" >
+                    </label>
+                </div>
+
+                <div class="col">
+                    <span class="input-label">Tel :</span>
+                    <label class="item item-input">
+                        <input type="text" placeholder="Phone number" name="phone" ng-model="tokenData.account_user_phone" >
+                    </label>
+                </div>
+                <div class="col">
+                    <span class="input-label">Email :</span>
+                    <label class="item item-input">
+                        <input type="email" placeholder="email@email.com" name="mail" ng-model="tokenData.account_user_email" >
+                    </label>
+                </div>
+                <div class="col">
+                    <span class="input-label">Address :</span>
+                    <label class="item item-input">
+                        <textarea name="address" rows="4" ng-model="tokenData.account_user_address" ></textarea>
+                    </label>
+                </div>
+                <div class="col">
+                    <span class="input-label ">Province :</span>
+                    <label class="item item-input ">
+                        <input type="text" readonly  name="province" ng-model="tokenData.account_user_province"  >
+                    </label>
+                    <a class="button icon-right ion-chevron-right button-block  button-balanced" ui-sref="app.province">
+                        Select Province
+                    </a>
+
+                </div>
+                <div class="col">
+                    <span class="input-label">Postcode :</span>
+                    <label class="item item-input">
+                        <input type="text" readonly   name="postcode" ng-model="tokenData.account_user_postcode" >
+                    </label>
+                    <a class="button icon-right ion-chevron-right button-block  button-balanced" ui-sref="app.postcode">
+                        Select PostCode
+                    </a>
+                </div>
+                <div class="row">
+                    <div class="col-40">
+                        <button class="button button-block  button-balanced" type="submit">
+                            Confirm
+                        </button>
+                    </div>
+                    <div class="col-40 col-offset-20" >
+                        <button ui-sref="app.profile" class="button button-block button-assertive"  >Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+</ion-view>
